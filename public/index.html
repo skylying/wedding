@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dedicated Page</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script type="module" src="js/main.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+        #content {
+            padding: 20px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ccc;
+            background-image: url('asset/background.png');
+            background-size: cover; /* Example property */
+            background-position: center; /* Example property */
+        }
+        .content-wrap {
+
+        }
+        .divider {
+          width: 100%;
+          height: 40px;
+          background-image: url('asset/divider.png');
+          background-size: cover; /* Example property */
+          background-position: center; /* Example property */
+        }
+        #comment-input {
+          padding: 0 20px 5px 20px;
+        }
+        #message {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        #comment-button {
+          padding: 0 20px 20px 20px;
+        }
+        #submit {
+            width: 100%;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        #comments {
+            padding: 20px;
+            overflow-y: scroll; /* Enable scrolling for comments */
+            max-height: calc(100vh - 300px); /* Limit maximum height of comments */
+        }
+        .comment {
+            margin-bottom: 20px;
+        }
+        #commentor {
+          font-size: 18px;
+          font-weight: bold;
+        }
+        #comment-time {
+          font-size: 12px;
+          padding-left: 10px;
+          padding-top: 5px;
+          color: #6b6767;
+        }
+        .float-left {
+          float:left;
+        }
+        .clearfix::after {
+          content: "";
+          display: table;
+          clear: both;
+        }
+    </style>
+</head>
+<body>
+    <!-- <header>
+        <h1>Hello Peyton !</h1>
+    </header> -->
+    <div id="content">
+      <div class="content-wrap">
+        <p>Dear [Someone's Name],</p>
+        <p>Here are some words for you:</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam convallis varius ipsum, at suscipit ipsum dictum at. Suspendisse potenti.</p>
+      </div>
+    </div>
+
+    <div class="divider">
+
+    </div>
+
+    <div id="comment-input">
+        <input type="text" id="message" placeholder="Leave your comment here">
+    </div>
+
+    <div id="comment-button">
+        <button id="submit">Submit</button>
+    </div>
+
+    <div id="comments">
+      <div class="comment">
+        <div class="comment-name-row clearfix">
+          <div id="commentor" class="float-left">Peyton</div>
+          <div id="comment-time" class="float-left">13 Jly 15:40</div>
+        </div>
+        <div class="comment-body-row clearfix">
+          <p>Congratulations !</p>
+        </div>
+      </div>
+    </div> <!-- Comment section -->
+
+    <script>
+        $(document).ready(function() {
+            $('#submit').click(function() {
+                var message = $('#message').val();
+                if ($.trim(message) !== '') {
+                    var comment = $('<div>').addClass('comment').html('<p>' + message + '</p>');
+                    $('#comments').append(comment);
+                    $('#message').val('');
+                    // Scroll to bottom of comment section
+                    $('#comments').scrollTop($('#comments')[0].scrollHeight);
+                } else {
+                    alert('Please enter a message.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

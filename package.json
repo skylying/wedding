@@ -1,0 +1,17 @@
+{
+  "name": "wedding",
+  "version": "1.0.0",
+  "description": "Tim's wedding project",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tim Lin",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.3",
+    "path": "^0.12.7",
+    "url": "^0.11.3"
+  }
+}
