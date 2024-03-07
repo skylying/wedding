@@ -48,7 +48,7 @@ header {
     border: none;
     cursor: pointer;
 }
-#comments {
+#comment-container {
     padding: 20px;
     overflow-y: scroll; /* Enable scrolling for comments */
     max-height: calc(100vh - 300px); /* Limit maximum height of comments */

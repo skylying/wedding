@@ -23,7 +23,7 @@
     -->
     <script defer src="/__/firebase/init.js?useEmulator=true"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script type="module" src="../js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.1/mustache.min.js" integrity="sha512-3GRj7sme01zpWwRNPNy48Rda1bD9cq34lqYG5vb8ZXGc+wRqsoBJ3+AC25IYW5w5SrWlzHqIpNIxZt5QF9sXLg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="../css/main.css">
 
   </head>
@@ -51,33 +51,26 @@
         <button id="submit">Submit</button>
     </div>
 
-    <div id="comments">
+    <div id="target"></div>
+
+    <div id="comment-container">
+    </div>
+
+    <script id="comment-template" type="x-tmpl-mustache">
       <div class="comment">
         <div class="comment-name-row clearfix">
-          <div id="commentor" class="float-left">Peyton</div>
-          <div id="comment-time" class="float-left">13 Jly 15:40</div>
+          <div id="commentor" class="float-left">{{ name }}</div>
+          <div id="comment-time" class="float-left">{{ time }}</div>
         </div>
         <div class="comment-body-row clearfix">
-          <p>Congratulations !</p>
+          <p>{{ comment }}</p>
         </div>
       </div>
-    </div> <!-- Comment section -->
-
-    <script>
-        $(document).ready(function() {
-            $('#submit').click(function() {
-                var message = $('#message').val();
-                if ($.trim(message) !== '') {
-                    var comment = $('<div>').addClass('comment').html('<p>' + message + '</p>');
-                    $('#comments').append(comment);
-                    $('#message').val('');
-                    // Scroll to bottom of comment section
-                    $('#comments').scrollTop($('#comments')[0].scrollHeight);
-                } else {
-                    alert('Please enter a message.');
-                }
-            });
-        });
     </script>
+
+    <script id="comment-template" type="x-tmpl-mustache">
+      Hello {{ name }}!
+    </script>
+    <script type="module" src="../js/main.js"></script>
   </body>
 </html>
