@@ -10,6 +10,18 @@ header {
     text-align: center;
     padding: 20px;
 }
+p {
+    word-break: break-all;
+    white-space: normal;
+}
+p.title {
+    font-weight: bold;
+}
+p.text-bg {
+    background-color: rgb(255,255,255,.4);
+    padding: 7px;
+    border-radius: 8px
+}
 #content {
     padding: 20px;
     margin-bottom: 20px;
@@ -31,7 +43,7 @@ header {
 #comment-input {
   padding: 0 20px 5px 20px;
 }
-#message {
+#comment-textarea {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
@@ -54,7 +66,7 @@ header {
     max-height: calc(100vh - 300px); /* Limit maximum height of comments */
 }
 .comment {
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
 #commentor {
   font-size: 18px;
